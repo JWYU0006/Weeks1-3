@@ -16,11 +16,10 @@ public class Light : MonoBehaviour
         //light follow mouse
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);    //get mouse position and convert into world coordinate
         Vector2 direction = transform.position - mouse;     //calculate a vector from the center point to the mouse position
-        //another way to rotate
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //angle += 90;    //The light is placed vertically downward, 90 degrees away from the mouse position.
-        //float clamp = Mathf.Clamp(angle, -50, 50);      //set max and min angle
-        //transform.rotation = Quaternion.Euler(0, 0, angle);     //set transform rotation value
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle += 90;    //The light is placed vertically downward, 90 degrees away from the mouse position.
+        float clamp = Mathf.Clamp(angle, -50, 50);      //set max and min angle
+        transform.rotation = Quaternion.Euler(0, 0, angle);     //set transform rotation value
         transform.up = direction;
         //when click, light appears
         if (Input.GetMouseButton(0))    //when left key clicked
