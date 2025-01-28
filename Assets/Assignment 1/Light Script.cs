@@ -22,5 +22,14 @@ public class Light : MonoBehaviour
         //float clamp = Mathf.Clamp(angle, -50, 50);      //set max and min angle
         //transform.rotation = Quaternion.Euler(0, 0, angle);     //set transform rotation value
         transform.up = direction;
+        //when click, light appears
+        if (Input.GetMouseButton(0))    //when left key clicked
+        {
+            transform.localScale = Vector3.one;     //restore local scale of square/light
+        }
+        else
+        {
+            transform.localScale = Vector3.zero;    //hide square/light
+        }
     }
 }
