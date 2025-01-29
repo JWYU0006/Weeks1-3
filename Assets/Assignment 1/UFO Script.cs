@@ -26,7 +26,7 @@ public class NewBehaviourScript : MonoBehaviour
         Vector2 direction = new Vector2(horizontal, vertical).normalized;  //convert 2 float above into a vector 3, keep z, use normalized to keep speed same in any direction
         pos += direction * speed * Time.deltaTime;  //use deltaTime to keep movement speed consistent regardless of frame rate.
         float clampX = Mathf.Clamp(pos.x, -screenBound.x, screenBound.x);    //set max and min value, keep sprite stay in screen.
-        float clampY = Mathf.Clamp(pos.y, -screenBound.y, screenBound.y);
+        float clampY = Mathf.Clamp(pos.y, -screenBound.y + 4, screenBound.y);   //screenBound.y adds the height of the ground
         pos = new Vector2(clampX, clampY);
         transform.position = pos;
         Debug.Log(direction);

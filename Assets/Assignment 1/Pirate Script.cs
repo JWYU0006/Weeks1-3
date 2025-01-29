@@ -24,7 +24,7 @@ public class PirateScript : MonoBehaviour
         t += Time.deltaTime;    //curve time
         Vector2 pos = transform.position;
         pos.y = initialPos.y - curve.Evaluate(t) * (transform.localScale.x);    //initial position subtract curve value to get current position. Multiplying local scale can reduce the distance of movement and create a perspective effect.
-        pos.x = initialPos.x - 1 * t;    //the value of the speed multiply time get the distance,
+        pos.x = initialPos.x - 10 * t * (transform.localScale.x);    //the value of the speed multiply time get the distance,
         transform.position = pos;
     }
 }
